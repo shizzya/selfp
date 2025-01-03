@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shixzy Andy| WhatsApp Bot</title>
+    <style>
+        :root {
+            --neon-primary: #0ff;
+            --neon-secondary: #f0f;
+            --neon-green: #0f0;
+            --dark: #000000;
+            --light: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background: var(--dark);
+            color: var(--light);
+            min-height: 100vh;
+            background-image: 
+                radial-gradient(circle at 50% 50%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 100% 0%, rgba(255, 0, 255, 0.1) 0%, transparent 50%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        h1 {
+            font-size: clamp(2em, 5vw, 3.5em);
+            text-align: center;
+            color: var(--neon-primary);
+            text-shadow: 
+                0 0 5px var(--neon-primary),
+                0 0 10px var(--neon-primary),
+                0 0 20px var(--neon-primary);
+            animation: neonPulse 1.5s infinite alternate;
+        }
+
+        @keyframes neonPulse {
+            from { text-shadow: 0 0 5px var(--neon-primary), 0 0 10px var(--neon-primary), 0 0 20px var(--neon-primary); }
+            to { text-shadow: 0 0 10px var(--neon-primary), 0 0 20px var(--neon-primary), 0 0 40px var(--neon-primary); }
+        }
+
+        .glass-morphism {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 
+                0 0 10px rgba(0, 255, 255, 0.2),
+                inset 0 0 20px rgba(255, 0, 255, 0.1);
+            animation: borderGlow 3s infinite alternate;
+        }
+
+        @keyframes borderGlow {
+            from { border-color: var(--neon-primary); }
+            to { border-color: var(--neon-secondary); }
+        }
+
+        .status {
+            text-align: center;
+            color: var(--neon-green);
+            font-size: 1.2em;
+            margin: 15px 0;
+            text-shadow: 0 0 10px var(--neon-green);
+            animation: statusPulse 2s infinite alternate;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 15px;
+            border-radius: 12px;
+            border: 2px solid var(--neon-primary);
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            margin: 10px 0;
+        }
+
+        input[type="text"]:focus {
+            border-color: var(--neon-secondary);
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.3);
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(45deg, var(--neon-primary), var(--neon-secondary));
+            color: var(--dark);
+            font-weight: bold;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 
+                0 0 20px var(--neon-primary),
+                0 0 40px var(--neon-secondary);
+        }
+
+        button.loading {
+            pointer-events: none;
+            opacity: 0.8;
+        }
+
+        button.loading::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            top: 50%;
+            left: 50%;
+            margin: -10px 0 0 -10px;
+            border: 2px solid transparent;
+            border-top-color: var(--dark);
+            border-radius: 50%;
+            animation: buttonSpin 0.8s linear infinite;
+        }
+
+        @keyframes buttonSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .tutorial-steps {
+            list-style: none;
+            padding: 0;
+        }
+
+        .tutorial-steps li {
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            border-left: 3px solid var(--neon-primary);
+        }
+
+        .tutorial-steps li:hover {
+            transform: translateX(10px);
+            border-left-color: var(--neon-secondary);
+            box-shadow: 0 0 15px rgba(255, 0, 255, 0.2);
+        }
+
+        #pairingCodeDisplay {
+            font-size: 1.2em;
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: codeGlow 1.5s infinite alternate;
+            text-shadow: 0 0 10px var(--neon-primary);
+        }
+
+        @keyframes codeGlow {
+            from { color: var(--neon-primary); text-shadow: 0 0 10px var(--neon-primary); }
+            to { color: var(--neon-secondary); text-shadow: 0 0 20px var(--neon-secondary); }
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid var(--neon-primary);
+            padding: 20px 0;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--neon-primary), transparent);
+            animation: borderFlow 2s infinite linear;
+        }
+
+        @keyframes borderFlow {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-icon {
+            color: var(--neon-primary);
+            padding: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px);
+            color: var(--neon-secondary);
+            box-shadow: 0 0 15px var(--neon-primary);
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 15px 25px;
+            border-radius: 12px;
+            background: rgba(0, 0, 0, 0.9);
+            color: var(--neon-primary);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1000;
+        }
+
+        .toast.show {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 15px; }
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Shixzy Bot Md</h1>
+        <div class="glass-morphism">
+            <p style="text-align: center; margin-bottom: 20px;">Unlock Efficient Conversations with Shizzy Bot Md.<br>Experience seamless automation and elevate your WhatsApp interactions with our cutting-edge Multi-Auth Bot Service.</p>
+            <div class="status">Status: Auto status seen active</div>
+
+            <form id="pairingForm">
+                <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Enter Phone Number" required />
+                <button type="submit">Generate Pairing Code</button>
+            </form>
+
+            <div id="pairingCodeDisplay" class="glass-morphism" title="Click to copy"></div>
+        </div>
+
+        <div class="glass-morphism tutorial">
+            <h2 style="margin-bottom: 15px;">How to Connect</h2>
+            <ol class="tutorial-steps">
+                <li>Open WhatsApp and go to settings</li>
+                <li>Select "Linked Devices"</li>
+                <li>Click on "Link a device"</li>
+                <li>Click "Link With phone Number instead"</li>
+                <li>Copy and paste the pairing code shown below</li>
+                <li>Wait a few seconds for the device to be connected</li>
+                <li>Your device is now active!</li>
+            </ol>
+        </div>
+
+        <div class="glass-morphism" id="about">
+            <h2 style="margin-bottom: 15px;">About Shixzy Bot Md 👀</h2>
+            <p>Automate WhatsApp Interactions with Ease!
+No Coding, No Deployment Hassle. Connect Multiple Accounts in Minutes and Start Automating Your WhatsApp Conversations - Absolutely Free! 🔥🫂</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="copyright">
+                <p>&copy; 2024 ANDY MRLIT BOT. All rights reserved.</p>
+            </div>
+            <div class="social-icons">
+                <a href="https://github.com/Ethix-Xsid" target="_blank" class="social-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1C5.923 1 1 5.92 1 12c0 4.867 3.437 8.949 8.205 10.39.6.11.82-.258.82-.577v-2.05c-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.755-1.333-1.755-1.09-.744.083-.728.083-.728 1.204.084 1.838 1.238 1.838 1.238 1.07 1.835 2.807 1.305 3.492.998.107-.775.42-1.305.764-1.605-2.665-.306-5.466-1.332-5.466-5.93 0-1.31.467-2.38 1.235-3.22-.123-.304-.536-1.532.117-3.19 0 0 1.007-.322 3.3 1.23a11.47 11.47 0 013.003-.403c1.02.005 2.048.137 3.004.403 2.292-1.552 3.297-1.23 3.297-1.23.654 1.658.24 2.886.118 3.19.77.84 1.234 1.91 1.234 3.22 0 4.61-2.803 5.62-5.475 5.92.43.37.812 1.1.812 2.22v3.293c0 .322.217.692.824.576C19.565 20.947 23 16.866 23 12c0-6.08-4.92-11-11-11z"></path></svg>
+                </a>
+                <a href="https://whatsapp.com/channel/0029VaWJMi3GehEE9e1YsI1S" target="_blank" class="social-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16.67 3.18C15.17 1.8 13.15 1 11 1 6.03 1 2 5.03 2 10c0 1.85.5 3.64 1.45 5.18L2 23l7.22-1.9c1.48.54 3.02.82 4.58.82 4.97 0 9-4.03 9-9 0-2.14-.79-4.17-2.33-5.67z"></path></svg>
+                </a>
+                <a href="https://www.instagram.com/ethix_xsid/profilecard/?igsh=MXVwaHZ5Zm9keG80aA==" target="_blank" class="social-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37a4 4 0 01-4 4 4 4 0 01-4-4 4 4 0 014-4 4 4 0 014 4z"></path></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toast" class="toast"></div>
+
+    <script>
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message
