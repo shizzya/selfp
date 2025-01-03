@@ -8,15 +8,15 @@ export const execute = async (Matrix, mek, { pushName, from, prefix }) => {
     const pluginsDir = path.resolve('./plugins');
     const sessionsDir = path.resolve('./sessions');
     const restoreSessionsDir = path.resolve('./restored_sessions');
-    const botName = "sʜɪᴢxʏ ʙᴏᴛ ᴍᴅ ★★★";
+    const botName = "ᴇᴛʜɪx-ᴍᴅ-ᴠ3";
     const freeRam = formatBytes(os.freemem());
     const totalRam = formatBytes(os.totalmem());
-    const platform = 'VPS';
-    const owner = '13056978303';
-    const ownerName = '𝙼𝚛𝚕𝚒𝚝 𝙰𝚗𝚍𝚢';
+    const platform = 'Heroku';
+    const owner = '919142294671';
+    const ownerName = 'єтнιχ';
 
-    const currentTime = moment().tz("America/Port-au-Prince").format("HH");
-    const wish = currentTime < 12 ? "Ayo wsp bro 😗" : currentTime < 18 ? "Bro Good Afternoon 😗" : "😴 Good Night";
+    const currentTime = moment().tz("Asia/Kolkata").format("HH");
+    const wish = currentTime < 12 ? "😁 Good morning" : currentTime < 18 ? "😊 Good afternoon" : "😴 Good Night";
 
     try {
         const pluginFiles = await readdir(pluginsDir);
@@ -43,17 +43,17 @@ export const execute = async (Matrix, mek, { pushName, from, prefix }) => {
 
         const uptimeFormatted = formatUptime(process.uptime() * 1000);
 
-        let menuMessage = `${wish}, *${pushName}*!\nIM DA BIGGEST BIRD 🦅
-シ.\n`;
+        let menuMessage = `${wish}, *${pushName}*!\n🌟𝚆𝙴𝙻𝙲𝙾𝙼𝙴 𝚃𝙾 𝙴𝚃𝙷𝙸𝚇-𝙼𝙳-𝚅3🌟.\n`;
         menuMessage += `╭─────────────━┈⊷\n`;
-        menuMessage += `│◦ 𝙱𝙾𝚃𝙽𝙰𝙼𝙴  ㋡ : *${botName}*\n`;
-        menuMessage += `│◦ 𝙲𝚁𝙴𝙰𝚃𝙾𝚁 𝙽𝙰𝙼𝙴   : *${ownerName}*\n`;
-        menuMessage += `│◦ 𝙲𝚁𝙴𝙰𝚃𝙾𝚁 𝙽𝚄𝙼𝙱𝙴𝚁 𖤍 : *${owner}*\n`;
-        menuMessage += `│◦ 𝚁𝚄𝙽𝚃𝙸𝙼𝙴  ◎ : *${uptimeFormatted}*\n`;
-        menuMessage += `│◦ 𝙿𝙻𝙰𝚃𝙵𝙾𝚁𝙼 ⏻ : *${platform}*\n`;
-        menuMessage += `│◦ 𝚃𝙾𝚃𝙰𝙻 𝙿𝙻𝚄𝙶𝙸𝙽𝚂  ◷ : *${pluginCount}*\n`;
-        menuMessage += `│◦ 𝚄𝚂𝙴𝚁𝚂 𝙲𝙾𝙽𝙽𝙴𝙲𝚃𝙴𝙳 ↻ : *${activeSessionsCount}*\n`;
-        menuMessage += `│◦ 𝙿𝚁𝙴𝙵𝙸𝚇 🝊 : *[${prefix}]*\n`;
+        menuMessage += `│◦ ʙᴏᴛ ɴᴀᴍᴇ : *${botName}*\n`;
+        menuMessage += `│◦ ᴏᴡɴᴇʀ ɴᴀᴍᴇ : *${ownerName}*\n`;
+        menuMessage += `│◦ ᴏᴡɴᴇʀ ɴᴜᴍʙᴇʀ : *${owner}*\n`;
+        menuMessage += `│◦ ᴜᴘᴛɪᴍᴇ : *${uptimeFormatted}*\n`;
+        menuMessage += `│◦ ʀᴀᴍ : *${freeRam} / ${totalRam}*\n`;
+        menuMessage += `│◦ ᴘʟᴀᴛғᴏʀᴍ : *${platform}*\n`;
+        menuMessage += `│◦ ᴛᴏᴛᴀʟ ᴘʟᴜɢɪɴs : *${pluginCount}*\n`;
+        menuMessage += `│◦ ᴀᴄᴛɪᴠᴇ sᴇssɪᴏɴs : *${activeSessionsCount}*\n`;
+        menuMessage += `│◦ ᴘʀᴇғɪx : *[${prefix}]*\n`;
         menuMessage += `╰─────────────━┈⊷\n\n`;
 
         const categories = {};
@@ -71,9 +71,9 @@ export const execute = async (Matrix, mek, { pushName, from, prefix }) => {
                 menuMessage += `*\`➤❖${category.toUpperCase()} ᴍᴇɴᴜ❖\`*\n`;
                 menuMessage += `╰━━━━━━━━━━━━━━━⪼\n\n`;
                 for (const { command, description, usage } of categories[category]) {
-                    menuMessage += `*◦ 𖣘ᴄᴏᴍᴍᴀɴᴅ:* ${command}\n`;
-                    menuMessage += `*◦ 𖣘ᴅᴇsᴄʀɪᴘᴛɪᴏɴ:* ${description}\n`;
-                    menuMessage += `*◦ 𖣘ᴜsᴀɢᴇ:* ${
+                    menuMessage += `*◦ 📟ᴄᴏᴍᴍᴀɴᴅ:* ${command}\n`;
+                    menuMessage += `*◦ 📂ᴅᴇsᴄʀɪᴘᴛɪᴏɴ:* ${description}\n`;
+                    menuMessage += `*◦ 💾ᴜsᴀɢᴇ:* ${
                         typeof usage === 'function'
                             ? usage(prefix)
                             : `${prefix}${command} ${usage ? usage : ''}`
@@ -82,7 +82,7 @@ export const execute = async (Matrix, mek, { pushName, from, prefix }) => {
             }
         }
 
-        menuMessage += `> *\`© 𝚈𝚘𝚘 𝙼𝚏 𝚃𝚑𝚒𝚜 𝙱𝚘𝚝 𝚆𝚊𝚜 𝙼𝚊𝚍𝚎 𝙱𝚢 𝙼𝚛𝚕𝚒𝚝 𝙰𝚗𝚍𝚢 ♉︎\`*`;
+        menuMessage += `> *\`© ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴇᴛʜɪx-ᴍᴅ\`*`;
 
         await Matrix.sendMessage(mek.key.remoteJid, { 
             image: { url: 'https://files.catbox.moe/hg0xgo.jpg' },
@@ -92,9 +92,9 @@ export const execute = async (Matrix, mek, { pushName, from, prefix }) => {
                     showAdAttribution: true,
                     title: `${wish}, ${pushName}`,
                     body: `${botName}`,
-                    thumbnailUrl: "https://img101.pixhost.to/images/306/550342639_than.jpg",
+                    thumbnailUrl: "https://files.catbox.moe/hg0xgo.jpg",
                     mediaType: 2,
-                    mediaUrl: "https://chat.whatsapp.com/Jx7300IL1iVIaDUolVULBj"
+                    mediaUrl: "https://whatsapp.com/channel/0029VaWJMi3GehEE9e1YsI1S"
                 }
             },
         }, { quoted: mek });
