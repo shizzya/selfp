@@ -26,12 +26,12 @@ export const execute = async (Matrix, mek, { args, reply, prefix, command }) => 
                             document: { url: downloadUrl },
                             fileName: `${videoTitle}.mp4`,
                             mimetype: 'video/mp4',
-                            caption: `Title: ${videoTitle}\n> Cʀᴇᴀᴛᴇᴅ Bʏ Mꜰʟɪᴛ Aɴᴅʏ`
+                            caption: `Title: ${videoTitle}\n> Powered By Ethix-MD-V3`
                         }, { quoted: mek });
                     } else {
                         await Matrix.sendMessage(mek.key.remoteJid, {
                             video: { url: downloadUrl, mimetype: 'video/mp4' },
-                            caption: `Title: ${videoTitle}\n> Cʀᴇᴀᴛᴇᴅ Bʏ Mꜰʟɪᴛ Aɴᴅʏ`
+                            caption: `Title: ${videoTitle}\n> Powered By Ethix-MD-V3`
                         }, { quoted: mek });
                     }
                 } else {
@@ -63,12 +63,12 @@ export const execute = async (Matrix, mek, { args, reply, prefix, command }) => 
                                 document: { url: downloadUrl },
                                 fileName: `${videoTitle}.mp4`,
                                 mimetype: 'video/mp4',
-                                caption: `Title: ${videoTitle}\n> Cʀᴇᴀᴛᴇᴅ Bʏ Mꜰʟɪᴛ Aɴᴅʏ`
+                                caption: `Title: ${videoTitle}\n> Powered By Ethix-MD-V3`
                             }, { quoted: mek });
                         } else {
                             await Matrix.sendMessage(mek.key.remoteJid, {
                                 video: { url: downloadUrl, mimetype: 'video/mp4' },
-                                caption: `Title: ${videoTitle}\n> Cʀᴇᴀᴛᴇᴅ Bʏ Mꜰʟɪᴛ Aɴᴅʏ`
+                                caption: `Title: ${videoTitle}\n> Powered By Ethix-MD-V3`
                             }, { quoted: mek });
                         }
                     } else {
