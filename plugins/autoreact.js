@@ -1,6 +1,6 @@
 import Users from '../models/user.js';
 
-const owner = "13056978303@s.whatsapp.net";
+const owner = "919142294671@s.whatsapp.net";
 
 export const execute = async (Matrix, mek, { from, args, fromMe, sender, phoneNumber }) => {
     if (!fromMe && sender !== owner) {

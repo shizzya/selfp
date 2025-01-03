@@ -73,7 +73,7 @@ export const execute = async (Matrix, mek, { args, reply, prefix, command }) => 
             contextInfo: {
               externalAdReply: {
                 title: title,
-                body: 'Sʜɪᴢxʏ Aɴᴅʏ ʙᴏᴛ',
+                body: 'Ethix-MD-V3',
                 thumbnailUrl: image,
                 mediaType: 2,
                 mediaUrl: input,
@@ -87,7 +87,7 @@ export const execute = async (Matrix, mek, { args, reply, prefix, command }) => 
             contextInfo: {
               externalAdReply: {
                 title: title,
-                body: 'Sʜɪᴢxʏ Aɴᴅʏ ʙᴏᴛ',
+                body: 'Ethix-MD-V3',
                 thumbnailUrl: image,
                 mediaType: 2,
                 mediaUrl: input,
@@ -125,7 +125,7 @@ export const execute = async (Matrix, mek, { args, reply, prefix, command }) => 
               contextInfo: {
                 externalAdReply: {
                   title: title,
-                  body: 'Cʀᴇᴀᴛᴇᴅ Bʏ Aɴᴅʏ Mʀʟɪᴛ',
+                  body: 'Ethix-MD-V3',
                   thumbnailUrl: thumbnailUrl,
                   mediaType: 2,
                   mediaUrl: videoUrl,
@@ -139,7 +139,7 @@ export const execute = async (Matrix, mek, { args, reply, prefix, command }) => 
               contextInfo: {
                 externalAdReply: {
                   title: title,
-                  body: 'Sʜɪᴢxʏ Aɴᴅʏ ʙᴏᴛ',
+                  body: 'Ethix-MD-V3',
                   thumbnailUrl: thumbnailUrl,
                   mediaType: 2,
                   mediaUrl: videoUrl,

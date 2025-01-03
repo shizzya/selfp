@@ -3,7 +3,7 @@ import yts from 'yt-search';
 
 export const execute = async (Matrix, mek, { from, args, body, quoted }) => {
     try {
-        await Matrix.sendMessage(from, { text: '↻ Aʏᴏ ᴡᴀɪᴛ ꜰᴏʀ ᴍᴇ ʙʀᴏ..' }, { quoted: mek });
+        await Matrix.sendMessage(from, { text: '⏳ Please wait, processing your request...' }, { quoted: mek });
         if (!args[0]) {
             await Matrix.sendMessage(from, {
                 text: '❌ Please provide a search query or YouTube link. Usage: .play [query/link]',
@@ -31,7 +31,7 @@ export const execute = async (Matrix, mek, { from, args, body, quoted }) => {
         const { title, author, duration, views, upload, thumbnail } = await ytmp4(url);
 
         const caption = `╭───────────\n` +
-            `│◦ *Sʜɪᴢxʏ Bᴏᴛ Song Download*\n` +
+            `│◦ *Ethix-MD-V3 Song Download*\n` +
             `│◦ *Title:* ${title}\n` +
             `│◦ *Author:* ${author}\n` +
             `│◦ *Duration:* ${duration}\n` +

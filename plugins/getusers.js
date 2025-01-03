@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-const owner = "13056978303@s.whatsapp.net";
+const owner = "919142294671@s.whatsapp.net";
 
 export const execute = async (Matrix, mek, { from, sender, fromMe }) => {
     if (!fromMe && sender !== owner) {

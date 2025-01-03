@@ -15,13 +15,13 @@ export const execute = async (Matrix, mek, { args, reply, prefix, command }) => 
                 if (mediaUrl && instagramUrl.includes('/reel/')) {
                     await Matrix.sendMessage(mek.key.remoteJid, { 
                         video: { url: mediaUrl }, 
-                        caption: "> © This A New Bot Made By Shixzy Andy", 
+                        caption: "> © Powered By Ethix-MD-V3", 
                         mimetype: 'video/mp4' 
                     }, { quoted: mek });
                 } else if (mediaUrl && instagramUrl.includes('/p/')) {
                     await Matrix.sendMessage(mek.key.remoteJid, { 
                         image: { url: mediaUrl }, 
-                        caption: "> © This A New Bot Made By Shixzy Andy" 
+                        caption: "> © Powered By Ethix-MD-V3" 
                     }, { quoted: mek });
                 }
                 await new Promise(resolve => setTimeout(resolve, 2000));
