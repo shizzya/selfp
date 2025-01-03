@@ -2,99 +2,99 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shixzy Andy| WhatsApp Bot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ethix-MD | WhatsApp Bot</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --neon-primary: #0ff;
-            --neon-secondary: #f0f;
-            --neon-green: #0f0;
-            --dark: #000000;
-            --light: #ffffff;
+            --primary-color: #39ff14;
+            --secondary-color: #ff4081;
+            --bg-dark: #121212;
+            --text-dark: #fff;
+            --card-bg: rgba(255, 255, 255, 0.05);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
-            background: var(--dark);
-            color: var(--light);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-dark);
             min-height: 100vh;
-            background-image: 
-                radial-gradient(circle at 50% 50%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 100% 0%, rgba(255, 0, 255, 0.1) 0%, transparent 50%);
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
         }
 
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
+            flex: 1;
             padding: 20px;
-            animation: fadeIn 1s ease-out;
+            max-width: 800px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .glass-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            border: 1px solid rgba(255, 255, 255, 0.18);
         }
 
         h1 {
-            font-size: clamp(2em, 5vw, 3.5em);
+            font-size: 2.5em;
+            font-weight: 800;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
             text-align: center;
-            color: var(--neon-primary);
-            text-shadow: 
-                0 0 5px var(--neon-primary),
-                0 0 10px var(--neon-primary),
-                0 0 20px var(--neon-primary);
-            animation: neonPulse 1.5s infinite alternate;
-        }
-
-        @keyframes neonPulse {
-            from { text-shadow: 0 0 5px var(--neon-primary), 0 0 10px var(--neon-primary), 0 0 20px var(--neon-primary); }
-            to { text-shadow: 0 0 10px var(--neon-primary), 0 0 20px var(--neon-primary), 0 0 40px var(--neon-primary); }
-        }
-
-        .glass-morphism {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            margin: 20px 0;
-            box-shadow: 
-                0 0 10px rgba(0, 255, 255, 0.2),
-                inset 0 0 20px rgba(255, 0, 255, 0.1);
-            animation: borderGlow 3s infinite alternate;
-        }
-
-        @keyframes borderGlow {
-            from { border-color: var(--neon-primary); }
-            to { border-color: var(--neon-secondary); }
+            margin-bottom: 20px;
+            animation: gradient 5s ease infinite;
         }
 
         .status {
             text-align: center;
-            color: var(--neon-green);
-            font-size: 1.2em;
+            color: var(--primary-color);
+            font-size: 1.1em;
             margin: 15px 0;
-            text-shadow: 0 0 10px var(--neon-green);
-            animation: statusPulse 2s infinite alternate;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .input-group {
+            position: relative;
+            margin: 20px 0;
         }
 
         input[type="text"] {
             width: 100%;
-            padding: 15px;
+            padding: 15px 20px;
+            border: 2px solid rgba(57, 255, 20, 0.3);
             border-radius: 12px;
-            border: 2px solid var(--neon-primary);
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(255, 255, 255, 0.05);
             color: #fff;
             font-size: 1em;
             transition: all 0.3s ease;
-            margin: 10px 0;
         }
 
         input[type="text"]:focus {
-            border-color: var(--neon-secondary);
-            box-shadow: 0 0 20px rgba(255, 0, 255, 0.3);
+            border-color: var(--primary-color);
             outline: none;
+            box-shadow: 0 0 15px rgba(57, 255, 20, 0.2);
         }
 
         button {
@@ -102,221 +102,216 @@
             padding: 15px;
             border: none;
             border-radius: 12px;
-            background: linear-gradient(45deg, var(--neon-primary), var(--neon-secondary));
-            color: var(--dark);
-            font-weight: bold;
             font-size: 1em;
+            font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: #000;
+            transition: transform 0.2s ease;
         }
 
-        button:hover {
-            transform: translateY(-2px);
-            box-shadow: 
-                0 0 20px var(--neon-primary),
-                0 0 40px var(--neon-secondary);
-        }
-
-        button.loading {
-            pointer-events: none;
-            opacity: 0.8;
-        }
-
-        button.loading::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            top: 50%;
-            left: 50%;
-            margin: -10px 0 0 -10px;
-            border: 2px solid transparent;
-            border-top-color: var(--dark);
-            border-radius: 50%;
-            animation: buttonSpin 0.8s linear infinite;
-        }
-
-        @keyframes buttonSpin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .tutorial-steps {
-            list-style: none;
-            padding: 0;
-        }
-
-        .tutorial-steps li {
-            margin: 15px 0;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            transition: all 0.3s ease;
-            border-left: 3px solid var(--neon-primary);
-        }
-
-        .tutorial-steps li:hover {
-            transform: translateX(10px);
-            border-left-color: var(--neon-secondary);
-            box-shadow: 0 0 15px rgba(255, 0, 255, 0.2);
+        button:active {
+            transform: scale(0.98);
         }
 
         #pairingCodeDisplay {
-            font-size: 1.2em;
-            text-align: center;
             margin: 20px 0;
             padding: 15px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            animation: codeGlow 1.5s infinite alternate;
-            text-shadow: 0 0 10px var(--neon-primary);
-        }
-
-        @keyframes codeGlow {
-            from { color: var(--neon-primary); text-shadow: 0 0 10px var(--neon-primary); }
-            to { color: var(--neon-secondary); text-shadow: 0 0 20px var(--neon-secondary); }
-        }
-
-        footer {
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
-            border-top: 1px solid var(--neon-primary);
-            padding: 20px 0;
-            position: relative;
-        }
-
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--neon-primary), transparent);
-            animation: borderFlow 2s infinite linear;
-        }
-
-        @keyframes borderFlow {
-            0% { background-position: -200% 0; }
-            100% { background-position: 200% 0; }
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
+            background: rgba(57, 255, 20, 0.1);
+            border-radius: 12px;
+            text-align: center;
+            font-family: monospace;
+            font-size: 1.2em;
+            word-break: break-all;
         }
 
         .social-icons {
             display: flex;
-            gap: 20px;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+            flex-wrap: wrap;
         }
 
         .social-icon {
-            color: var(--neon-primary);
-            padding: 10px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.05);
-            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 0.9em;
+            transition: transform 0.2s ease;
+            gap: 8px;
         }
 
-        .social-icon:hover {
-            transform: translateY(-5px);
-            color: var(--neon-secondary);
-            box-shadow: 0 0 15px var(--neon-primary);
+        .social-icon:active {
+            transform: scale(0.95);
         }
+
+        .github { background: #333; }
+        .whatsapp { background: #25D366; }
+        .instagram { background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D); }
+        .coffee { background: #FF813F; }
 
         .toast {
             position: fixed;
             bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
-            padding: 15px 25px;
-            border-radius: 12px;
             background: rgba(0, 0, 0, 0.9);
-            color: var(--neon-primary);
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
             opacity: 0;
             transition: opacity 0.3s ease;
-            z-index: 1000;
         }
 
         .toast.show {
             opacity: 1;
         }
 
-        @media (max-width: 768px) {
-            .container { padding: 15px; }
-            .footer-content {
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            font-size: 0.9em;
+            margin-top: auto;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .glass-card {
+                padding: 20px;
+            }
+
+            .social-icons {
                 flex-direction: column;
-                gap: 20px;
-                text-align: center;
+            }
+
+            .social-icon {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* iOS specific styles */
+        @supports (-webkit-touch-callout: none) {
+            input[type="text"],
+            button {
+                -webkit-appearance: none;
+                appearance: none;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Shixzy Bot Md</h1>
-        <div class="glass-morphism">
-            <p style="text-align: center; margin-bottom: 20px;">Unlock Efficient Conversations with Shizzy Bot Md.<br>Experience seamless automation and elevate your WhatsApp interactions with our cutting-edge Multi-Auth Bot Service.</p>
-            <div class="status">Status: Auto status seen active</div>
+        <div class="glass-card">
+            <h1>Ethix-MD | WhatsApp Bot</h1>
+            <p style="text-align: center;">Welcome to the WhatsApp Multi-Auth bot service.<br>Automate your conversations easily with Ethix-MD.</p>
+            <div class="status">
+                <i class="fas fa-circle" style="color: var(--primary-color); font-size: 0.8em;"></i>
+                Status: Auto status seen active
+            </div>
 
             <form id="pairingForm">
-                <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Enter Phone Number" required />
+                <div class="input-group">
+                    <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Enter Phone Number" required />
+                </div>
                 <button type="submit">Generate Pairing Code</button>
             </form>
 
-            <div id="pairingCodeDisplay" class="glass-morphism" title="Click to copy"></div>
+            <div id="pairingCodeDisplay"></div>
+            <button id="copyButton" style="display:none;">
+                <i class="fas fa-copy"></i> Copy Code
+            </button>
         </div>
 
-        <div class="glass-morphism tutorial">
-            <h2 style="margin-bottom: 15px;">How to Connect</h2>
-            <ol class="tutorial-steps">
-                <li>Open WhatsApp and go to settings</li>
-                <li>Select "Linked Devices"</li>
-                <li>Click on "Link a device"</li>
-                <li>Click "Link With phone Number instead"</li>
-                <li>Copy and paste the pairing code shown below</li>
-                <li>Wait a few seconds for the device to be connected</li>
-                <li>Your device is now active!</li>
-            </ol>
+        <div class="glass-card">
+            <h2 style="text-align: center; margin-bottom: 15px;">About Ethix-MD</h2>
+            <p style="line-height: 1.6;">This is an auto status seen bot that allows you to automate WhatsApp interactions without any deployment hassle. Simply connect multiple accounts directly and start using it — free of charge!</p>
         </div>
 
-        <div class="glass-morphism" id="about">
-            <h2 style="margin-bottom: 15px;">About Shixzy Bot Md 👀</h2>
-            <p>Automate WhatsApp Interactions with Ease!
-No Coding, No Deployment Hassle. Connect Multiple Accounts in Minutes and Start Automating Your WhatsApp Conversations - Absolutely Free! 🔥🫂</p>
+        <div class="social-icons">
+            <a href="https://github.com/Ethix-Xsid" target="_blank" class="social-icon github">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="https://whatsapp.com/channel/0029VaWJMi3GehEE9e1YsI1S" target="_blank" class="social-icon whatsapp">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+            <a href="https://www.instagram.com/ethix_xsid/profilecard/?igsh=MXVwaHZ5Zm9keG80aA==" target="_blank" class="social-icon instagram">
+                <i class="fab fa-instagram"></i> Instagram
+            </a>
+            <a href="https://www.buymeacoffee.com/ethixxsid" target="_blank" class="social-icon coffee">
+                <i class="fas fa-coffee"></i> Buy me a coffee
+            </a>
         </div>
     </div>
 
-    <footer>
-        <div class="footer-content">
-            <div class="copyright">
-                <p>&copy; 2024 ANDY MRLIT BOT. All rights reserved.</p>
-            </div>
-            <div class="social-icons">
-                <a href="https://github.com/Ethix-Xsid" target="_blank" class="social-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1C5.923 1 1 5.92 1 12c0 4.867 3.437 8.949 8.205 10.39.6.11.82-.258.82-.577v-2.05c-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.755-1.333-1.755-1.09-.744.083-.728.083-.728 1.204.084 1.838 1.238 1.838 1.238 1.07 1.835 2.807 1.305 3.492.998.107-.775.42-1.305.764-1.605-2.665-.306-5.466-1.332-5.466-5.93 0-1.31.467-2.38 1.235-3.22-.123-.304-.536-1.532.117-3.19 0 0 1.007-.322 3.3 1.23a11.47 11.47 0 013.003-.403c1.02.005 2.048.137 3.004.403 2.292-1.552 3.297-1.23 3.297-1.23.654 1.658.24 2.886.118 3.19.77.84 1.234 1.91 1.234 3.22 0 4.61-2.803 5.62-5.475 5.92.43.37.812 1.1.812 2.22v3.293c0 .322.217.692.824.576C19.565 20.947 23 16.866 23 12c0-6.08-4.92-11-11-11z"></path></svg>
-                </a>
-                <a href="https://whatsapp.com/channel/0029VaWJMi3GehEE9e1YsI1S" target="_blank" class="social-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16.67 3.18C15.17 1.8 13.15 1 11 1 6.03 1 2 5.03 2 10c0 1.85.5 3.64 1.45 5.18L2 23l7.22-1.9c1.48.54 3.02.82 4.58.82 4.97 0 9-4.03 9-9 0-2.14-.79-4.17-2.33-5.67z"></path></svg>
-                </a>
-                <a href="https://www.instagram.com/ethix_xsid/profilecard/?igsh=MXVwaHZ5Zm9keG80aA==" target="_blank" class="social-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37a4 4 0 01-4 4 4 4 0 01-4-4 4 4 0 014-4 4 4 0 014 4z"></path></svg>
-                </a>
-            </div>
-        </div>
-    </footer>
-
     <div id="toast" class="toast"></div>
 
+    <footer>
+        <p>&copy; 2024 Ethix-MD. All rights reserved.</p>
+        <p style="margin-top: 5px; font-size: 0.9em; color: #888;">Developed with ❤️ by Ethix-Xsid</p>
+    </footer>
+
     <script>
+        document.getElementById('pairingForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const phoneNumber = document.getElementById('phoneNumber').value;
+
+            if (!phoneNumber) {
+                showToast("Please enter a valid phone number!");
+                return;
+            }
+
+            try {
+                const response = await fetch('/pairing-code', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ phoneNumber })
+                });
+
+                const data = await response.json();
+
+                if (data.pairingCode) {
+                    document.getElementById('pairingCodeDisplay').innerText = 'Pairing Code: ' + data.pairingCode;
+                    document.getElementById('copyButton').style.display = 'block';
+                } else {
+                    showToast('Error generating pairing code.');
+                }
+            } catch (error) {
+                showToast('Network error. Please try again.');
+            }
+        });
+
+        document.getElementById('copyButton').addEventListener('click', () => {
+            const codeText = document.getElementById('pairingCodeDisplay').innerText.replace('Pairing Code: ', '');
+            navigator.clipboard.writeText(codeText).then(() => {
+                showToast('Pairing Code copied to clipboard!');
+            }).catch(() => {
+                showToast('Failed to copy code. Please try again.');
+            });
+        });
+
         function showToast(message) {
             const toast = document.getElementById('toast');
-            toast.textContent = message
+            toast.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
